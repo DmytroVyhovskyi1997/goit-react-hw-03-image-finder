@@ -1,9 +1,9 @@
-import propTypes from 'prop-types';
-import css from './Button.module.css';
+// import propTypes from 'prop-types';
+// import css from './Button.module.css';
 
 
 export const Button = () => (
-    <button className={css}>
+    <button >
 
     </button>
 )

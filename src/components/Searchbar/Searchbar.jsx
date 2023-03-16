@@ -1,9 +1,9 @@
-import propTypes from 'prop-types';
-import css from './Button.module.css';
+// import propTypes from 'prop-types';
+// import css from './Button.module.css';
 
-export const Searchbar = ()=>(
-    <header className={css}>
-  <form class="form">
+export const Searchbar = ({ onSubmit })=>(
+    <header >
+  <form class="form" onSubmit={onSubmit}>
     <button type="submit" class="button">
       <span class="button-label">Search</span>
     </button>
