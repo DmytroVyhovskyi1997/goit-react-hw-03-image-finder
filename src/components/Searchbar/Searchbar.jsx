@@ -1,20 +1,25 @@
-// import propTypes from 'prop-types';
-// import css from './Button.module.css';
+import propTypes from 'prop-types';
+import css from './Searchbar.module.css';
 
-export const Searchbar = ({ onSubmit })=>(
-    <header >
-  <form class="form" onSubmit={onSubmit}>
-    <button type="submit" class="button">
-      <span class="button-label">Search</span>
-    </button>
+export const Searchbar = ({ handleSubmit }) => (
+  <header>
+    <form onSubmit={handleSubmit}>
+      <button type="submit">
+        <span>Search</span>
+      </button>
 
-    <input
-      class="input"
-      type="text"
-      autocomplete="off"
-      autofocus
-      placeholder="Search images and photos"
-    />
-  </form>
-</header>
-)
+      <input
+        name="inputSearch"
+        class="input"
+        type="text"
+        autocomplete="off"
+        autofocus
+        placeholder="Search images and photos"
+      />
+    </form>
+  </header>
+);
+
+Searchbar.propTypes = {
+  onSubmit: propTypes.func,
+};
