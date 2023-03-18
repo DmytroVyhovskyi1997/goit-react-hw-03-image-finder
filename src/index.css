@@ -101,11 +101,11 @@ img {
   outline: none;
 }
 
-.SearchForm-button:hover {
+.SearchForm_button:hover {
   opacity: 1;
 }
 
-.SearchForm-button-label {
+.SearchForm_button_label {
   position: absolute;
   width: 1px;
   height: 1px;

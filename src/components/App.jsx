@@ -13,6 +13,7 @@ export class App extends Component {
     page: 1,
     isLoading: false,
     currentSearch: '',
+    isShowModal: false,
     modalOpen: false,
     modalImg: '',
     modalAlt: '',
@@ -44,19 +45,30 @@ export class App extends Component {
       );
     }
   };
-  handleImageClick = e => {
+
+btnReadMore = async(e)=>{
+  this.state.page ++;
+  const inputValue = e.target.elements.inputSearch.value.trim();
+
+  try {
+    const response = await fetchImages(inputValue, 1);
     this.setState({
-      modalOpen: true,
-      modalAlt: e.target.alt,
-      modalImg: e.target.name,
+      page: 1,
+      images: response,
+      isLoading: false,
+      currentSearch: inputValue.value,
     });
-  };
+  } catch (error) {
+    alert(
+      'Sorry, there are no images matching your search query. Please try again.'
+    );
+  }
+}
 
   render() {
     return (
       <div
         style={{
-          display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 40,
@@ -65,9 +77,10 @@ export class App extends Component {
       >
         <Searchbar handleSubmit={this.handleSubmit} />
         <ImageGallery
-          onImageClick={this.handleImageClick}
+        showModal={this.showModal}
           images={this.state.images}
         />
+        <Button btnReadMore={this.btnReadMore}/>
       </div>
     );
   }
