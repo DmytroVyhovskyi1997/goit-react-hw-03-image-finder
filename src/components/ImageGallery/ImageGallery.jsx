@@ -1,20 +1,20 @@
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import css from './ImageGallery.module.css';
 
-export const ImageGallery = ({images, onImageClick })=>(
+export const ImageGallery = ({images, handleImageClick })=>(
     <ul className={css.ImageGallery}  >
   {images.map((image, index)=>(
-    <ImageGalleryItem onclick={onImageClick} image={image} key={index}/>
+    <ImageGalleryItem onclick={handleImageClick} image={image} key={index}/>
   ))}
 </ul>
 )
 
 ImageGallery.propTypes = {
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
+  images: propTypes.arrayOf(
+    propTypes.shape({
+      id: propTypes.number.isRequired,
     })
-  ).isRequired,
-  onImageClick: PropTypes.func.isRequired,
+  ),
+  handleImageClick: propTypes.func.isRequired,
 };
