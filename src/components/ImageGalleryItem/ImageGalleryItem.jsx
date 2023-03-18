@@ -9,5 +9,5 @@ export const ImageGalleryItem = ({ image, onClick }) => (
 
 ImageGalleryItem.propTypes = {
   image: propTypes.object.isRequired,
-  onclick: propTypes.func.isRequired,
+  onClick: propTypes.func.isRequired,
 };
