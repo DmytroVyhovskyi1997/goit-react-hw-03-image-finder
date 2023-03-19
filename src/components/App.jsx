@@ -30,12 +30,10 @@ export class App extends Component {
       return;
     }
 
-   
-  
     try {
       const response = await fetchImages(inputValue, 1);
-      if(!inputValue){
-        return alert('error')
+      if (!inputValue) {
+        return alert('error');
       }
       this.setState({
         page: 1,
@@ -95,7 +93,7 @@ export class App extends Component {
   };
 
   render() {
-    const {images, img, alt} = this.state
+    const { images, img, alt, isLoading, modalOpen } = this.state;
     return (
       <div
         style={{
@@ -105,26 +103,19 @@ export class App extends Component {
           paddingBottom: '24px',
         }}
       >
-        {this.state.isLoading ? (
+        {isLoading ? (
           <Loader />
         ) : (
           <React.Fragment>
             <Searchbar handleSubmit={this.handleSubmit} />
-            <ImageGallery
-              handleImageClick={this.showModal}
-              images={images}
-            />
+            <ImageGallery handleImageClick={this.showModal} images={images} />
             {images.length > 0 ? (
               <Button btnReadMore={this.btnReadMore} />
             ) : null}
           </React.Fragment>
         )}
-        {this.state.modalOpen ? (
-          <Modal
-            src={img}
-            alt={alt}
-            closeModal={this.closeModal}
-          />
+        {modalOpen ? (
+          <Modal src={img} alt={alt} closeModal={this.closeModal} />
         ) : null}
       </div>
     );
