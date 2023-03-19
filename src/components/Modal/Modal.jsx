@@ -1,13 +1,13 @@
 import propTypes from 'prop-types';
-// import css from './Button.module.css';
+import css from './Modal.module.css';
 
 
-export const Modal = ({img:{src, alt}}, on) => {
-  return(  <div >
-  <div class="modal">
-    <img src={src} alt={alt} />
+export const Modal = ({src, alt, closeModal}) => {
+  return(  
+  <div className={css.Modal} onClick={closeModal}>
+    <img className={css.Overlay} src={src} alt={alt} />
   </div>
-</div>
+
   )
 }
 

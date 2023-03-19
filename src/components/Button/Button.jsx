@@ -3,7 +3,7 @@ import css from './Button.module.css';
 
 
 export const Button = ({btnReadMore}) => (
-    <button onClick={btnReadMore}>
+    <button className={css.Button} onClick={btnReadMore}>
 LoadMore
     </button>
 )
