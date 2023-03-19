@@ -91,6 +91,7 @@ export class App extends Component {
   };
 
   render() {
+    const {images, img, alt} = this.state
     return (
       <div
         style={{
@@ -107,17 +108,17 @@ export class App extends Component {
             <Searchbar handleSubmit={this.handleSubmit} />
             <ImageGallery
               handleImageClick={this.showModal}
-              images={this.state.images}
+              images={images}
             />
-            {this.state.images.length > 0 ? (
+            {images.length > 0 ? (
               <Button btnReadMore={this.btnReadMore} />
             ) : null}
           </React.Fragment>
         )}
         {this.state.modalOpen ? (
           <Modal
-            src={this.state.img}
-            alt={this.state.alt}
+            src={img}
+            alt={alt}
             closeModal={this.closeModal}
           />
         ) : null}
