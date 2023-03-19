@@ -29,10 +29,14 @@ export class App extends Component {
     if (inputValue === '') {
       return;
     }
+
+   
   
     try {
       const response = await fetchImages(inputValue, 1);
-
+      if(!inputValue){
+        return alert('error')
+      }
       this.setState({
         page: 1,
         images: response,
