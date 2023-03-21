@@ -11,7 +11,7 @@ export class Searchbar extends Component {
     currentSearch: '',
   };
 
-  handlerName = e => {
+  handleName = e => {
     this.setState({ currentSearch: e.target.value.toLowerCase() });
   };
 
@@ -34,7 +34,7 @@ export class Searchbar extends Component {
             <span className={css.SearchForm_button_label}>Search</span>
           </button>
           <input
-            onChange={this.handlerName}
+            onChange={this.handleName}
             value={this.state.currentSearch}
             className={css.SearchForm_input}
             type="text"
