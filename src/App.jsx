@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Searchbar } from 'components/Searchbar/Searchbar';
-import { fetchImages } from 'components/Api/fetchImages';
+import { fetchImages } from 'Api/fetchImages';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { Modal } from 'components/Modal/Modal';
 import { Loader } from 'components/Loader/Loader';
@@ -55,7 +55,6 @@ export class App extends Component {
   btnReadMore = () => {
     this.setState(prevState => ({
       page: prevState.page + 1,
-      isLoading: true,
     }));
   };
 
